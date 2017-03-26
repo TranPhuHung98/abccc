@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "com.stdiohue.basestrcuture"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        // no need to use test
+        //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            versionNameSuffix '-SNAPSHOT'
+        }
+        release {
+            minifyEnabled true
+            proguardFile getDefaultProguardFile('proguard-android.txt')
+            proguardFile 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        dev {
+            applicationIdSuffix '.debug'
+        }
+        stage {
+            applicationIdSuffix '.stage'
+        }
+    }
+    // A lot of 3rd party libraries contain similar stuff.
+    packagingOptions {
+        exclude 'LICENSE.*'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'NOTICE.*'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+
+    dataBinding {
+        enabled true;
+    }
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // no need to write unitTest now
+    //androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    //    exclude group: 'com.android.support', module: 'support-annotations'
+    //})
+
+
+    compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
+    //testCompile 'junit:junit:4.12'
+
+    //network lib
+    compile 'com.android.volley:volley:1.0.0'
+    //parse lib
+    compile 'com.google.code.gson:gson:2.8.0'
+    //for text font
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+}
