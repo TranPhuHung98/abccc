@@ -1,4 +1,4 @@
-package com.stdiohue.basestrcuture.view.base;
+package com.stdiohue.basestrcuture.base;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -27,7 +27,9 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  */
 
 public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatActivity implements AlertBridgeListener {
-
+    protected T getBinding(){
+        return viewDataBinding;
+    }
 
     protected T viewDataBinding;
 
@@ -64,12 +66,16 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
      */
     protected abstract void destroyScreen();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewDataBinding = DataBindingUtil.setContentView(this, getLayoutId());
         init();
+
     }
+
+
 
     @Override
     public void onPostCreate(Bundle savedInstanceState) {

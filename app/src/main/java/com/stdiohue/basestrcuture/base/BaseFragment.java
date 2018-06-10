@@ -1,4 +1,4 @@
-package com.stdiohue.basestrcuture.view.base;
+package com.stdiohue.basestrcuture.base;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -25,6 +25,10 @@ import com.stdiohue.basestrcuture.utils.AlertBridgeListener;
 
 public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
     protected T viewDataBinding;
+
+    protected T getBinding(){
+        return viewDataBinding;
+    }
 
     private AlertBridgeListener mAlertBridgeListener;
 

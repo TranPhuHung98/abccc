@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textColor="#ff00"
+        android:gravity="center"
+        android:text="Thêm Danh bạ"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addName"
+        android:hint="Nhập tên"
+        android:layout_below="@+id/tv"
+        android:textSize="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_below="@+id/addName"
+        android:layout_height="wrap_content"
+        android:hint="Nhập số điện thoại"
+        android:id="@+id/addPhone"
+
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/addPhone"
+        android:text="Lưu"
+        android:textSize="20dp" />
+
+    <Button
+        android:text="Hủy"
+        android:layout_marginLeft="40dp"
+        android:textSize="20dp"
+        android:layout_below="@+id/addPhone"
+        android:layout_toRightOf="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCancel"/>
+</RelativeLayout>
+</layout>
